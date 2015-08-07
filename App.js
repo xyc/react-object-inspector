@@ -118,8 +118,8 @@ export default class App extends Component {
           // TODO: key props here
           return testObjects.map(function(object, index){
             return (
-                  <div style={{marginBottom:"10px"}}>
-                    <ObjectInspector key={index} data={object}>
+                  <div key={index} style={{marginBottom:"10px"}}>
+                    <ObjectInspector data={object}>
                     </ObjectInspector>
                   </div>);
           });
