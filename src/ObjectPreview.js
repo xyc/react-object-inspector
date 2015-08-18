@@ -25,15 +25,16 @@ export default class ObjectPreview extends Component {
   }
 
   render() {
+    const styles = this.props.styles;
     const object = this.props.object;
     if (typeof object !== 'object' || object === null) {
-      return (<ObjectDescription object={object} />);
+      return (<ObjectDescription styles={styles} object={object} />);
     }
 
     if (Array.isArray(object)) {
-      return <span className="ObjectInspector-object-preview">[
+      return <span className="ObjectInspector-object-preview" style={styles.preview}>[
         {intersperse(object.map(function(element, index){
-          return (<ObjectDescription key={index} object={element} />)
+          return (<ObjectDescription styles={styles} key={index} object={element} />)
         }), ", ")}
       ]</span>;
     }
@@ -49,9 +50,9 @@ export default class ObjectPreview extends Component {
           }
           propertyNodes.push(
             <span key={propertyName}>
-              <span className="ObjectInspector-object-name">{propertyName}</span>
+              <span className="ObjectInspector-object-name" style={styles.object.name}>{propertyName}</span>
               :&nbsp;
-              <ObjectDescription object={propertyValue} />
+              <ObjectDescription styles={styles} object={propertyValue} />
               {ellipsis}
             </span>
           );
@@ -60,7 +61,7 @@ export default class ObjectPreview extends Component {
         }
       }
 
-      return (<span className="ObjectInspector-object-preview">
+      return (<span className="ObjectInspector-object-preview" style={styles.preview}>
                   {'Object {'}
                   {intersperse(propertyNodes, ", ")}
                   {'}'}
