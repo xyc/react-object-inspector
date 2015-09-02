@@ -54,7 +54,7 @@ export default class ObjectPreview extends Component {
             <span key={propertyName}>
               <span className="ObjectInspector-object-name">{propertyName}</span>
               :&nbsp;
-              <ObjectDescription object={propertyValue} />
+              <ObjectDescription object={propertyValue} preview />
               {ellipsis}
             </span>
           );
