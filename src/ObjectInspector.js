@@ -16,7 +16,8 @@ export default class ObjectInspector extends Component {
       name: void 0,
       data: undefined,
       depth: 0,
-      objectinspectorid: String(void 0)
+      objectinspectorid: String(void 0),
+      className: 'ObjectInspector'
   }
 
   constructor(props) {
@@ -65,6 +66,7 @@ export default class ObjectInspector extends Component {
   render() {
     const data = this.props.data;
     const name = this.props.name;
+    const className = this.props.className;
 
     const setExpanded = (this.props.depth === 0) ? (this.setExpanded.bind(this)) : this.props.setExpanded;
     const getExpanded = (this.props.depth === 0) ? (this.getExpanded.bind(this)) : this.props.getExpanded;
@@ -81,6 +83,7 @@ export default class ObjectInspector extends Component {
         if(data.hasOwnProperty(propertyName)){
           propertyNodes.push(<ObjectInspector getExpanded={getExpanded}
                                               setExpanded={setExpanded}
+                                              className={className}
                                               objectinspectorid={`${this.props.objectinspectorid}.${propertyName}`}
                                               depth={this.props.depth + 1}
                                               key={propertyName}
@@ -88,23 +91,23 @@ export default class ObjectInspector extends Component {
                                               data={propertyValue}></ObjectInspector>);
         }
       }
-      propertyNodesContainer = (<div style={{paddingLeft:"12px"}} className="ObjectInspector-property-nodes-container">{propertyNodes}</div>);
+      propertyNodesContainer = (<div style={{paddingLeft:"12px"}} className={`${className}-property-nodes-container`}>{propertyNodes}</div>);
     }
 
     return (
-      <div className="ObjectInspector">
-        <span className="ObjectInspector-property" onTouchStart={this.handleClick.bind(this)} onClick={this.handleClick.bind(this)}>
-          <span className="ObjectInspector-expand-control ObjectInspector-unselectable">{expandGlyph}</span>
+      <div className={`${className}`}>
+        <span className={`${className}-property`} onTouchStart={this.handleClick.bind(this)} onClick={this.handleClick.bind(this)}>
+          <span className={`${className}-expand-control ${className}-unselectable`}>{expandGlyph}</span>
           {(() => {
             if (typeof name !== 'undefined') {
               return (<span>
-                        <span className="ObjectInspector-object-name">{name}</span>
+                        <span className={`${className}-object-name`}>{name}</span>
                         <span>: </span>
-                        <ObjectDescription object={data} />
+                        <ObjectDescription className={className} object={data} />
                       </span>);
             }
             else{
-              return (<ObjectPreview object={data}/>);
+              return (<ObjectPreview className={className} object={data}/>);
             }
           })()}
         </span>
