@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 
+function shortenString(str) {
+  return str.length > 100 ?
+    str.substr(0, 50) + '…' + str.substr(-50) :
+    str;
+}
+
 /**
  * A short description of the object
  */
@@ -10,7 +16,9 @@ export default class ObjectDescription extends Component{
       case 'number':
         return (<span className="ObjectInspector-object-value-number">{object}</span>);
       case 'string':
-        return (<span className="ObjectInspector-object-value-string">&quot;{object}&quot;</span>);
+        return (<span className="ObjectInspector-object-value-string">
+                  &quot;{this.props.preview ? shortenString(object) : object}&quot;
+                </span>);
       case 'boolean':
         return (<span className="ObjectInspector-object-value-boolean">{String(object)}</span>); // why simple {object} won't work?
       case 'undefined':
