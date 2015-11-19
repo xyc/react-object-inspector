@@ -34,8 +34,21 @@ export class App extends Component {
     return (
       <div>
         <GithubCorner url="https://github.com/xyc/react-object-inspector"></GithubCorner>
+
+      {/*
         <Counter increment={1} color={NICE} />
-        <Counter increment={5} color={SUPER_NICE} />
+        <Counter increment={5} color={SUPER_NICE} />*/}
+        <div className="container">
+          <section className="header">
+            <h2 className="title" style={{
+                                          textAlign: 'center',
+                                          marginTop: '10rem'
+                                        }}>
+              react-object-inspector
+            </h2>
+          </section>
+        </div>
+
       </div>
     );
   }

@@ -10,8 +10,8 @@ import './GithubCorner.css';
  */
 export default class GithubCorner extends Component {
   render(){
-    var title = "Fork me on Github!";
-    var url = this.props.url;
+    const title = "Fork me on Github!";
+    const url = this.props.url;
     return (
       <div>
         <a title={title} href={url} className="github-corner">
