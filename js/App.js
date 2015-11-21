@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
+import CodeEditor from './CodeEditor';
+import GithubCorner from './GithubCorner';
+
 import ObjectInspector from 'react-object-inspector';
+
 
 function testFunction(){
   console.log("hello world");
@@ -113,6 +117,8 @@ export default class App extends Component {
 
     return (
       <div>
+        <GithubCorner/>
+
         {(() => {
           // https://facebook.github.io/react/tips/if-else-in-JSX.html
           // TODO: key props here
@@ -124,6 +130,8 @@ export default class App extends Component {
                   </div>);
           });
         })()}
+
+        {/* <CodeEditor codeText="console.log('hello world!')" /> */}
       </div>
     );
   }
