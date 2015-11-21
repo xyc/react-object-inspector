@@ -3,16 +3,18 @@ import React, { Component } from 'react';
 // import css from 'css!./GithubCorner.css';
 // var styles = require('css!./GithubCorner.css');
 
-// import './GithubCorner.css';
+import './GithubCorner.css';
 
 /**
  * https://github.com/tholman/github-corners
  */
 export default class GithubCorner extends Component {
   render(){
+    const title = "Fork me on Github!";
+    const url = this.props.url;
     return (
       <div>
-        <a href="http://your-url" className="github-corner">
+        <a title={title} href={url} className="github-corner">
           <svg width={80} height={80} viewBox="0 0 250 250" style={{
               fill: '#151513',
               color: '#fff',
