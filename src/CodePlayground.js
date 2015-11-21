@@ -56,38 +56,21 @@ export default class CodePlayground extends Component {
 
     try{
       dataObject = eval(`(${this.state.codeText.toString()})`);
-      debugger;
+      // debugger;
     }
     catch(e){
       // console.warn(e);
       error = e;
     }
 
-    console.log(dataObject)
-    const lint = JSONLint( this.state.codeText );
-
-    // // Do something with the error
-    // error = lint.error;
-    // if ( lint.error ) {
-    //     console.log(lint.error) // Error Message
-    //     console.log(lint.line); // Line number in json file where error was found
-    //     console.log(lint.character); // Character of line in json file where error was found
-    // }
-    // else{
-    //   try{
-    //     //dataObject = JSON.parse(this.state.codeText);
-    //     dataObject = eval(this.state.codeText);
-    //   }
-    //   catch(e){
-    //     debugger;
-    //     console.log(e);
-    //   }
-    // }
+    // console.log(dataObject)
+    const lint = JSONLint(this.state.codeText);
 
     return (
       <div>
         <div className="container" style={{
             marginTop: 25,
+
             // marginLeft: 100,
             // marginRight: 100,
             maxWidth: 'none'
@@ -98,6 +81,7 @@ export default class CodePlayground extends Component {
                           codeText={this.state.codeText}
                           style={{
                             // height: 600
+                            marginBottom: 25
                           }}/>
             </div>
             <div className="six columns">
