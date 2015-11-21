@@ -29,6 +29,11 @@ module.exports = {
       test: /\.js$/,
       loaders: ['babel'],
       include: path.join(__dirname, 'src')
-    }]
+    },
+    {
+      test: /\.css$/, // Only .css files
+      loader: 'style!css' // Run both loaders
+    }
+    ]
   }
 };
