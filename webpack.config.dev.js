@@ -21,7 +21,9 @@ module.exports = {
       {
         test: /\.js$/,
         loaders: ['babel'],
-        include: path.join(__dirname, 'src')
+        include: [path.join(__dirname, 'src'),
+                  // for debugging object inspector
+                  path.join(__dirname, '../src')]
       },
       {
         test: /\.css$/, // Only .css files

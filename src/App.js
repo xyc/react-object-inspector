@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-import CodeEditor from './CodeEditor';
-import ObjectInspector from 'react-object-inspector';
-
 import CodePlayground from './CodePlayground';
 
 // import '../css/react-object-inspector.css';

@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 
 import CodeEditor from './CodeEditor';
-import ObjectInspector from 'react-object-inspector';
 
+// import ObjectInspector from 'react-object-inspector';
+import ObjectInspector from '../../src/ObjectInspector';
+
+// provide error message of line number and char
 import JSONLint from 'json-lint';
 
-const defaultData = {
+// https://api.github.com/users/defunkt
+let defaultData = {
     "login": "defunkt",
     "id": 2,
     "avatar_url": "https://avatars.githubusercontent.com/u/2?v=3",
@@ -94,14 +98,19 @@ export default class CodePlayground extends Component {
                 if(error){
                   // debugger;
                   return (
-                    <p>
+                    <p style={{
+                        color: 'brown' // error color
+                      }}>
                       {`${lint.error} at line ${lint.line}, character ${lint.character}`}
                     </p>
                   )
                 }
                 else{
                   return (
-                    <ObjectInspector data={dataObject}>
+                    <ObjectInspector data={dataObject}
+                                     initialExpandedPaths={[
+                                        'root'
+                                     ]}>
                     </ObjectInspector>
                   )
                 }
@@ -115,7 +124,10 @@ export default class CodePlayground extends Component {
   }
 }
 
-// var a={
+
+
+
+// defaultData = {
 //   "a1": 1,
 //   "a2": "A2",
 //   "a3": true,
@@ -130,3 +142,20 @@ export default class CodePlayground extends Component {
 //   },
 //   "a7": new Date("2005-04-03")
 // }
+
+
+// {
+//         "move fast": 1,
+//         "break things": "yes",
+//         "have fun": true,
+//         "the answer": undefined,
+//         "a5": {
+//           "a5-1": null,
+//           "a5-2": ["a5-2-1", "a5-2-2"],
+//           "a5-3": {}
+//         },
+//         "sayHello": function(){
+//           console.log("hello world")
+//         },
+//         "a7": new Date("2005-04-03")
+//     }

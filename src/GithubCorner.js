@@ -16,7 +16,10 @@ export default class GithubCorner extends Component {
       <div>
         <a title={title} href={url} className="github-corner">
           <svg width={80} height={80} viewBox="0 0 250 250" style={{
-              fill: '#151513',
+              // black
+              // fill: '#151513',
+              // color: '#fff',
+              fill: '#70B7FD',
               color: '#fff',
               position: 'absolute',
               top: 0,
