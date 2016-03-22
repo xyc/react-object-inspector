@@ -1,3 +1,5 @@
+[DEPRECATION WARNING] future development will be at https://github.com/xyc/react-inspector
+
 react-object-inspector
 =====================
 
