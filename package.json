@@ -56,9 +56,9 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "karma-webpack": "^1.7.0",
     "phantomjs": "^1.9.18",
-    "react": "^0.14.2",
-    "react-addons-test-utils": "^0.14.2",
-    "react-dom": "^0.14.2",
+    "react": "^15.0.0",
+    "react-addons-test-utils": "^15.0.0",
+    "react-dom": "^15.0.0",
     "react-hot-loader": "^1.2.7",
     "style-loader": "^0.13.0",
     "rimraf": "^2.4.4",
@@ -66,6 +66,6 @@
     "webpack-dev-server": "^1.8.2"
   },
   "peerDependencies": {
-    "react": "^0.14.0"
+    "react": "^0.14.0 || ^15.0.0"
   }
 }
